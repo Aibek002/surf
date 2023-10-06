@@ -1,6 +1,5 @@
 <template>
-  <div>
-    <div class="container">
+    <div class="containers">
       <video autoplay loop muted plays-inline class="back-video">
         <source
           src="https://cdn.pixabay.com/vimeo/770315621/man-138644.mp4?width=1280&hash=6778f87fe59baffa432d6162daa7b3a409bfb36a"
@@ -34,6 +33,7 @@
                 <path d="M7.72006 13.3063L4.94345 13.3985L2.87258 11.4441" stroke="#F4F4F4" stroke-width="1.03287" />
               </svg>
               Types of Holidays</a></li>
+
           <li><a href="">
               <svg xmlns="http://www.w3.org/2000/svg" width="20" height="21" viewBox="0 0 20 21" fill="none">
                 <path
@@ -71,9 +71,10 @@
                   stroke="#F4F4F4" stroke-width="1.17371" />
               </svg>
               Accommodations</a></li>
-          <li><a href="">About</a></li>
+          <li><a href="/about">About</a></li>
         </ul>
-        <div class="book"><a href="">Book</a></div>
+        
+        <div class="book"><a href="/book">Book</a></div>
 
       </div>
       <div class="content">
@@ -168,7 +169,6 @@
 
       </div>
     </div>
-  </div>
 </template>
 
 <script>
@@ -189,13 +189,15 @@ export default {
 </script>
 
 <style scoped>
-.container {
+.containers {
   /* width: 100%; */
   height: 80vh;
   background: rgba(27, 27, 27, 0.91);
   position: relative;
+  right: 0;
+  bottom: 0;
   padding: 0 5%;
-  display: flex;
+  display: flex;                          
   align-items: center;
   justify-content: center;
 }
@@ -283,7 +285,7 @@ ul li svg {
   font-style: normal;
   font-family: cursive;
   font-size: small;
-  margin-left: 5px;
+  margin: 0 0 0 5px;
 }
 
 .book {
@@ -349,7 +351,6 @@ ul li svg {
 }
 .exploder:hover {
 
-  width: 120px;
   border: 0.752px solid var(--GRIGIO-TESTO, #f7070300);
   transition: all 1s;
   }
@@ -442,6 +443,7 @@ margin-left: 5px;
   font-style: normal;
   font-weight: 600;
   line-height: 180%;
+  margin: 0%;
   /* 21.663px */
 }
 

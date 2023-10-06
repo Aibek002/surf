@@ -1,9 +1,11 @@
 <template>
+  <Header/>
     <tourListService/>
     <popularPackage/>
     <allPackageInfo/>
     <chooceNextDestanatio/>
     <searchByLocation/> 
+    <Footer/>
 </template>
 
 <script>
@@ -12,6 +14,8 @@ import popularPackage from './popular-package.vue'
 import allPackageInfo from './all-package-info.vue'
 import chooceNextDestanatio from './chooce-next-destanatio.vue'
 import searchByLocation from './search-by-location.vue'
+import header from '../header.vue'
+import footer from '../footer.vue'
 
 export default {
     name: '',
@@ -33,6 +37,8 @@ export default {
         'chooceNextDestanatio':chooceNextDestanatio,
         'allPackageInfo':allPackageInfo,
         'searchByLocation':searchByLocation,
+        'Footer':footer,
+        'Header':header,
 
     }
 }
@@ -80,8 +86,6 @@ export default {
   .text-menu-detile-search {
     font-size: 7px;
   }
-  .list-of-service-tour{
-    flex-direction: column;
-  }
+ 
 }
 </style>
