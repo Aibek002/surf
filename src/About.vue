@@ -338,9 +338,11 @@
 
                                 </a>
                             </div>
-                        </div><br>
-                        <a href="" class="show-mode">Show more</a>
+                        </div>  
+                     
                     </el-space>
+                <div class="show-more">   <a href="" class="show-mode">Show more</a></div>
+                    
                 </div>
 
 
@@ -407,6 +409,10 @@ export default {
 
 .local {
     width: 18px;
+}
+.show-more{
+    padding:20px;
+    height:100px;
 }
 
 .show-mode {
