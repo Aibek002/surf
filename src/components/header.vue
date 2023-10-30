@@ -1,13 +1,65 @@
+<script>
+export default {
+  name: '',
+  data() {
+    return {
+      largeImage: 'https://cdn.pixabay.com/vimeo/770315621/man-138644.mp4?width=1280&hash=6778f87fe59baffa432d6162daa7b3a409bfb36a',
+      smallImage: 'https://images.pexels.com/photos/2631613/pexels-photo-2631613.jpeg?auto=compress&cs=tinysrgb&w=600',
+      smallWidth: '100%',
+      smallHeight:'150px',
+    };
+  },
+  computed: {
+    windowWidth() {
+      return window.innerWidth;
+    },
+  },
+  watch: {
+
+    windowWidth(newWidth) {
+      if (newWidth < 600) {
+       
+        this.largeVideo;
+      } else {
+        this.largeImage;
+      
+      }
+    }
+  },
+ 
+  mounted() {
+window.addEventListener('resize',this.hangleResize);
+},
+
+ methods: {
+    handleResize() {
+      this.windowWidth = window.innerWidth;
+      if (this.windowWidth < 600) {
+        this.smallWidth = '100%';
+      } else {
+        this.smallWidth = '1440';
+      }
+    }
+  },
+}
+</script>
+
 <template>
+  <div class="bodys">
     <div class="containers">
-      <video autoplay loop muted plays-inline class="back-video">
+      <video v-if="windowWidth >= 600" autoplay loop muted plays-inline class="back-video">
         <source
-          src="https://cdn.pixabay.com/vimeo/770315621/man-138644.mp4?width=1280&hash=6778f87fe59baffa432d6162daa7b3a409bfb36a"
+        :src="largeVideo"
+        
           type="video/mp4">
       </video>
+      <img class="bg-small-display"
+      v-else :src="smallImage"
+       alt=""
+       >
       <div class="menu">
         <div class="logo">
-          <img src="../img/logo.png" alt="">
+          <img src="../img/travelingagency.svg" alt="">
 
 
         </div>
@@ -74,123 +126,37 @@
           <li><a href="/about">About</a></li>
         </ul>
         
-        <div class="book"><a href="/book">Book</a></div>
 
       </div>
       <div class="content">
         <h1>Your next thrilling adventure<br> starts today! </h1>
         <a href="" class="exploder">More details</a>
       </div>
-      <div class="menu-detile-tour">
-        <div class="menu-detile-tour-item"><a href="/" class="menu-detile-tour-link"><svg
-              xmlns="http://www.w3.org/2000/svg" width="19" height="19" viewBox="0 0 19 19" fill="none">
-              <path
-                d="M9.60598 18.2327C14.3007 18.2327 18.1065 14.4481 18.1065 9.7795C18.1065 5.11093 14.3007 1.32629 9.60598 1.32629C4.91128 1.32629 1.10547 5.11093 1.10547 9.7795C1.10547 14.4481 4.91128 18.2327 9.60598 18.2327Z"
-                stroke="#302D27" stroke-width="0.902611" stroke-linecap="round" stroke-linejoin="round" />
-              <path
-                d="M1.76172 13.0333H4.05032C4.65729 13.0333 5.2394 12.7936 5.6686 12.3667C6.09779 11.9399 6.33891 11.3611 6.33891 10.7575V8.80673C6.33891 8.20313 6.58003 7.62426 7.00923 7.19745C7.43842 6.77064 8.02054 6.53086 8.62751 6.53086C9.23449 6.53086 9.8166 6.29109 10.2458 5.86428C10.675 5.43747 10.9161 4.8586 10.9161 4.255V1.41992"
-                stroke="#302D27" stroke-width="0.902611" stroke-linecap="round" stroke-linejoin="round" />
-              <path
-                d="M18.1029 9.64691C17.4481 9.30905 16.722 9.13075 15.9843 9.12671H13.1988C12.5918 9.12671 12.0097 9.36649 11.5805 9.79329C11.1513 10.2201 10.9102 10.799 10.9102 11.4026C10.9102 12.0062 11.1513 12.585 11.5805 13.0119C12.0097 13.4387 12.5918 13.6784 13.1988 13.6784C13.6323 13.6784 14.0481 13.8497 14.3547 14.1546C14.6612 14.4594 14.8335 14.8729 14.8335 15.3041V16.4355"
-                stroke="#302D27" stroke-width="0.902611" stroke-linecap="round" stroke-linejoin="round" />
-              <path
-                d="M9.07767 17.7022C9.2211 17.3805 9.24323 16.9907 9.07737 16.6454C8.91151 16.3001 8.7281 15.8067 8.3501 15.64C7.97211 15.4733 7.55262 15.4413 7.18392 15.5509C6.81522 15.6605 6.5275 15.9027 6.38407 16.2244C6.28162 16.4542 6.07611 16.6272 5.81275 16.7055C5.54939 16.7838 5.24976 16.7609 4.97976 16.6418L4.27122 16.3294"
-                stroke="#302D27" stroke-width="0.902611" stroke-linecap="round" stroke-linejoin="round" />
-            </svg>
-            <p class="text-menu-detile-link">Our Tours</p>
-          </a></div>
-        <div class="menu-detile-tour-item"><a href="/" class="menu-detile-tour-link"><svg
-              xmlns="http://www.w3.org/2000/svg" width="15" height="15" viewBox="0 0 15 15" fill="none">
-              <path
-                d="M4.38281 13.0991V13.7016C4.38281 14.0754 4.68579 14.3784 5.05953 14.3784V14.3784C5.43328 14.3784 5.73625 14.0754 5.73625 13.7016V13.0991"
-                stroke="#FF8F50" stroke-width="0.752176" />
-              <path
-                d="M9.79297 13.0992V13.7018C9.79297 14.0755 10.0959 14.3785 10.4697 14.3785V14.3785C10.8434 14.3785 11.1464 14.0755 11.1464 13.7018V13.0992"
-                stroke="#FF8F50" stroke-width="0.752176" />
-              <rect x="2.50391" y="11.5435" width="10.5272" height="1.42143" rx="0.710717" stroke="#FF8F50"
-                stroke-width="0.752176" />
-              <path d="M8.90234 3.5482L9.95792 4.35915L9.24139 5.11298L10.1371 4.17069L11.0327 3.22839" stroke="#FF8F50"
-                stroke-width="0.752176" />
-              <path d="M4.76172 3.5482L6.15566 4.35915L5.43913 5.11298L6.33479 4.17069L7.23045 3.22839" stroke="#FF8F50"
-                stroke-width="0.752176" />
-              <path
-                d="M12.3867 11.37L13.0348 4.14883V3.84774C13.0348 2.18612 11.6878 0.839111 10.0262 0.839111V0.839111H5.88934V0.839111C4.01972 0.839111 2.5042 2.35493 2.50456 4.22454L2.50463 4.56254L3.15184 11.37"
-                stroke="#FF8F50" stroke-width="0.752176" />
-              <path d="M13.1793 6.10474H7.76544H2.35156" stroke="#FF8F50" stroke-width="0.752176" />
-              <path d="M12.2843 2.34387L7.77106 2.34387L3.25781 2.34387" stroke="#FF8F50" stroke-width="0.752176"
-                stroke-linecap="round" />
-              <path
-                d="M13.3634 4.43567H13.8368C14.3345 4.43567 14.6748 4.9841 14.4899 5.48827L14.3492 5.87204C14.2424 6.16344 13.9837 6.35452 13.6961 6.35452H13.1875"
-                stroke="#FF8F50" stroke-width="0.752176" />
-              <path
-                d="M2.1796 4.43567H1.70619C1.20851 4.43567 0.868201 4.9841 1.05303 5.48827L1.19373 5.87204C1.30056 6.16344 1.55923 6.35452 1.84688 6.35452H2.35547"
-                stroke="#FF8F50" stroke-width="0.752176" />
-              <ellipse cx="10.0174" cy="9.3617" rx="0.751744" ry="0.710702" stroke="#FF8F50" stroke-width="0.752176" />
-              <ellipse cx="5.50974" cy="9.36158" rx="0.751928" ry="0.710702" stroke="#FF8F50" stroke-width="0.752176" />
-              <path d="M10.7772 7.22302L9.90164 7.22302C8.72411 7.22302 7.76953 8.1776 7.76953 9.35513V9.35513"
-                stroke="#FF8F50" stroke-width="0.752176" stroke-linecap="round" />
-              <path d="M4.76182 7.22302L5.63743 7.22302C6.81496 7.22302 7.76953 8.1776 7.76953 9.35513V9.35513"
-                stroke="#FF8F50" stroke-width="0.752176" stroke-linecap="round" />
-            </svg>
-            <p class="text-menu-detile-link">Options tour</p>
-          </a></div>
-        <div class="menu-detile-tour-item"><a href="/" class="menu-detile-tour-link"><svg
-              xmlns="http://www.w3.org/2000/svg" width="19" height="21" viewBox="0 0 19 21" fill="none">
-              <path
-                d="M10.2595 11.9277L11.9347 7.06985C12.6289 5.0568 13.9107 3.32316 15.6106 2.09813C16.0311 1.79509 16.63 2.02516 16.7676 2.54261C17.3238 4.63436 17.2499 6.83203 16.5557 8.84508L14.8806 13.7029C14.1864 15.716 12.9046 17.4496 11.2047 18.6747C10.7841 18.9777 10.1852 18.7476 10.0477 18.2302C9.49148 16.1384 9.56536 13.9407 10.2595 11.9277Z"
-                stroke="#302D27" stroke-width="0.752176" />
-              <line x1="0.376088" y1="-0.376088" x2="3.81814" y2="-0.376088"
-                transform="matrix(0.325819 -0.944844 0.934052 0.358829 14.5977 8.59949)" stroke="#302D27"
-                stroke-width="0.752176" stroke-linecap="round" />
-              <line y1="-0.376088" x2="5.02459" y2="-0.376088"
-                transform="matrix(0.934052 0.358829 -0.325818 0.944844 10.4141 11.4796)" stroke="#302D27"
-                stroke-width="0.752176" />
-              <line y1="-0.376088" x2="5.02459" y2="-0.376088"
-                transform="matrix(0.934052 0.358828 -0.325819 0.944844 9.38672 14.453)" stroke="#302D27"
-                stroke-width="0.752176" />
-              <path
-                d="M9.12327 8.72648L7.4481 13.5843C6.75393 15.5974 5.47214 17.331 3.77221 18.556C3.35169 18.8591 2.75278 18.629 2.6152 18.1116C2.05902 16.0198 2.1329 13.8221 2.82708 11.8091L4.50225 6.95125C5.19643 4.9382 6.47821 3.20456 8.17815 1.97952C8.59867 1.67648 9.19757 1.90656 9.33515 2.424C9.89133 4.51576 9.81745 6.71343 9.12327 8.72648Z"
-                stroke="#302D27" stroke-width="0.752176" />
-              <path d="M9.62109 7.26257L7.61612 5.37037L4.92786 5.45961" stroke="#302D27" stroke-width="0.752176" />
-              <path d="M6.89242 15.1897L4.20417 15.2789L2.19919 13.3867" stroke="#302D27" stroke-width="0.752176" />
-              <path d="M7.57601 13.2084L4.88776 13.2976L2.88278 11.4054" stroke="#302D27" stroke-width="0.752176" />
-            </svg>
-            <p class="text-menu-detile-link">Location</p>
-          </a></div>
-        <div class="menu-detile-tour-search"><a href="/" class="menu-detile-tour-link">
-            <p class="text-menu-detile-search">Search</p><svg xmlns="http://www.w3.org/2000/svg" width="14" height="14"
-              viewBox="0 0 14 14" fill="none">
-              <path
-                d="M5.84723 11.5373C7.0605 11.537 8.23881 11.1309 9.19453 10.3835L12.1994 13.3882L13.1659 12.4217L10.1611 9.41703C10.9089 8.46126 11.3153 7.28275 11.3156 6.06923C11.3156 3.05429 8.86233 0.601196 5.84723 0.601196C2.83213 0.601196 0.378906 3.05429 0.378906 6.06923C0.378906 9.08417 2.83213 11.5373 5.84723 11.5373ZM5.84723 1.9682C8.10907 1.9682 9.94848 3.80751 9.94848 6.06923C9.94848 8.33095 8.10907 10.1703 5.84723 10.1703C3.5854 10.1703 1.74599 8.33095 1.74599 6.06923C1.74599 3.80751 3.5854 1.9682 5.84723 1.9682Z"
-                fill="#1B160E" />
-            </svg>
-          </a></div>
-
-
-      </div>
     </div>
+    <svg v-if="windowWidth < 600" class="wave" xmlns="http://www.w3.org/2000/svg" :width="smallWidth" :height="smallHeight" fill="none" xmlns:xlink="http://www.w3.org/1999/xlink">
+      <path fill-rule="evenodd" clip-rule="evenodd" d="M0 27.4739L4 24.4739C8 22.4739 16 18.4739 24 16.4739C32 14.4739 40 14.4739 48 20.4739C56 27.4739 64 39.4739 72 50.4739C80 61.4739 88 70.4739 96 65.4739C104 61.4739 111 44.4739 119 44.4739C127 44.4739 135 61.4739 143 67.4739C151 74.4739 159 70.4739 167 59.4739C175 48.4739 183 31.4739 191 29.4739C199 27.4739 207 39.4739 215 44.4739C223 48.4739 231 44.4739 239 39.4739C247 35.4739 255 31.4739 263 33.4739C271 35.4739 279 44.4739 287 46.4739C295 48.4739 303 44.4739 311 46.4739C319 48.4739 326 57.4739 334 54.4739C342 52.4739 350 39.4739 358 35.4739C366 31.4739 374 35.4739 382 29.4739C390 22.4739 398 5.47389 406 1.47389C414 -3.52611 422 5.47389 426 9.47389L430 14.4739V91.4739H426C422 91.4739 414 91.4739 406 91.4739C398 91.4739 390 91.4739 382 91.4739C374 91.4739 366 91.4739 358 91.4739C350 91.4739 342 91.4739 334 91.4739C326 91.4739 319 91.4739 311 91.4739C303 91.4739 295 91.4739 287 91.4739C279 91.4739 271 91.4739 263 91.4739C255 91.4739 247 91.4739 239 91.4739C231 91.4739 223 91.4739 215 91.4739C207 91.4739 199 91.4739 191 91.4739C183 91.4739 175 91.4739 167 91.4739C159 91.4739 151 91.4739 143 91.4739C135 91.4739 127 91.4739 119 91.4739C111 91.4739 104 91.4739 96 91.4739C88 91.4739 80 91.4739 72 91.4739C64 91.4739 56 91.4739 48 91.4739C40 91.4739 32 91.4739 24 91.4739C16 91.4739 8 91.4739 4 91.4739H0V27.4739Z" fill="#FCFCFC"/>
+</svg>
+    <svg v-else class="wave" xmlns="http://www.w3.org/2000/svg" width="100" height="326" fill="none" xmlns:xlink="http://www.w3.org/1999/xlink">
+      <path fill-rule="evenodd" clip-rule="evenodd" d="M0 66.6822L18 51.6822C37 37.6822 74 8.6822 111 1.6822C148 -5.3178 185 8.6822 222 59.6822C258 109.682 295 195.682 332 217.682C369 239.682 406 195.682 443 167.682C480 138.682 517 123.682 554 138.682C591 152.682 628 195.682 665 217.682C702 239.682 738 239.682 775 231.682C812 224.682 849 210.682 886 188.682C923 167.682 960 138.682 997 138.682C1034 138.682 1071 167.682 1108 195.682C1145 224.682 1182 253.682 1218 239.682C1255 224.682 1292 167.682 1329 145.682C1366 123.682 1403 138.682 1422 145.682L1440 152.682V325.682H1422C1403 325.682 1366 325.682 1329 325.682C1292 325.682 1255 325.682 1218 325.682C1182 325.682 1145 325.682 1108 325.682C1071 325.682 1034 325.682 997 325.682C960 325.682 923 325.682 886 325.682C849 325.682 812 325.682 775 325.682C738 325.682 702 325.682 665 325.682C628 325.682 591 325.682 554 325.682C517 325.682 480 325.682 443 325.682C406 325.682 369 325.682 332 325.682C295 325.682 258 325.682 222 325.682C185 325.682 148 325.682 111 325.682C74 325.682 37 325.682 18 325.682H0V66.6822Z" fill="white"/>
+    </svg>
+
+
+
+</div>
 </template>
 
-<script>
-export default {
-  name: '',
-  data() {
-    return {
-
-    };
-  },
-  methods: {
-
-  },
-  mounted() {
-
-  },
-}
-</script>
 
 <style scoped>
+.bodys{
+  display: flex;
+  flex-direction: column;
+}
+.wave{
+  position: absolute;
+  bottom: 100px;
+  
+}
 .containers {
-  /* width: 100%; */
   height: 80vh;
   background: rgba(27, 27, 27, 0.91);
   position: relative;
@@ -200,19 +166,16 @@ export default {
   display: flex;                          
   align-items: center;
   justify-content: center;
+  position: relative;
 }
 
 .menu {
   max-width: 100%;
   min-width: 90%;
   overflow: hidden;
-  /* Обрезать содержимое элемента, если оно выходит за границы */
   white-space: nowrap;
-  /* Запрет переноса текста на новую строку */
   text-overflow: ellipsis;
-  /* Отображать многоточие (...) для обрезанного текста */
   max-width: 100%;
-  /* Установить максимальную ширину элемента по размерам родительского контейнера */
   position: absolute;
   top: 0;
   left: 0;
@@ -254,6 +217,7 @@ ul li {
   list-style: none;
   display: inline-block;
   margin-left: 40px;
+  margin-bottom: 0px;
 
 }
 
@@ -288,28 +252,9 @@ ul li svg {
   margin: 0 0 0 5px;
 }
 
-.book {
-  display: inline-flex;
-  padding: 3px 21.518px;
-  justify-content: center;
-  align-items: center;
-  gap: 7.825px;
-  border-radius: 136.933px;
-  background: var(--ORANGE-Light, #FF8F50);
 
-}
 
-.book a {
-  color: var(--K, #1B160E);
-  text-align: center;
-  font-family: Poppins;
-  font-size: 15.649px;
-  font-style: normal;
-  font-weight: 600;
-  line-height: 180%;
-  /* 28.169px */
-  text-decoration: none;
-}
+
 
 .content {
   align-items: center;
@@ -317,11 +262,17 @@ ul li svg {
 }
 
 .content h1 {
+ 
+}
+
+.content h1{
+  -webkit-text-stroke: 2px #fff;
+  color: transparent;
+  transition: all 2s;
   display: flex;
   flex-direction: column;
   justify-content: center;
   flex-shrink: 0;
-  color: var(--Bianco, #FEFEFE);
   text-align: center;
   font-family: sans-serif;
   font-size: 65px;
@@ -329,12 +280,6 @@ ul li svg {
   font-weight: 800;
   line-height: normal;
   transition: 0.5s;
-}
-
-.content h1:hover {
-  -webkit-text-stroke: 2px #fff;
-  color: transparent;
-  transition: all 2s;
 }
 
 .exploder {
@@ -351,101 +296,15 @@ ul li svg {
 }
 .exploder:hover {
 
-  border: 0.752px solid var(--GRIGIO-TESTO, #f7070300);
+  border: 0.752px solid  #f7070300;
   transition: all 1s;
   }
-
-
-.menu-detile-tour {
+.bg-small-display{
   position: absolute;
-  border: 1.504px solid var(--GRAY-Light, #E3E3E1);
-  background: var(--Bianco, #FEFEFE);
-  box-shadow: 0px 4.51306px 8.27394px 0px rgba(0, 0, 0, 0.10);
-  left: 50;
-  top: 95%;
-  height: 10%;
-  border-radius: 50px;
-  width: 718.984px;
-  height: 75.218px;
-  padding: 18.052px 24.07px;
-  gap: 7.522px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-}
-
-.menu-detile-tour-item {
-  display: flex;
-  width: 173.964px;
-  padding: 8.274px 12.035px;
-  flex-direction: row;
-  justify-content: center;
-  align-items: flex-start;
-  gap: 10.711px;
-  border-radius: 112.826px;
-  border: 0.752px solid var(--GRIGIO-TESTO, #6B7D8D);
-  background: var(--Bianco, #FEFEFE);
-}
-
-
-
-.menu-detile-tour-item:hover {
-  width: 180px;
-  border: 0.752px solid var(--GRIGIO-TESTO, #f7070300);
-  transition: all 0.5s;
+  right: 0;
+  bottom: 0;
+  z-index: -1;
 
 }
-
-.menu-detile-tour-search:hover {
-  width: 16%;
-  height: 55%;
-  border: 0.752px solid var(--GRIGIO-TESTO, #f7910300);
-  transition: all 0.5s;
-
-}
-
-.menu-detile-tour-link {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  text-decoration: none;
-  color: var(--GRIGIO-TESTO, #6B7D8D);
-  font-family: Poppins;
-  font-size: 9.778px;
-  font-style: normal;
-  font-weight: 400;
-  line-height: normal;
-
-}
-
-.menu-detile-tour-search {
-  border-radius: 105.305px;
-  background: var(--ORANGE-Light, #FF8F50);
-  display: flex;
-  width: 107.306px;
-  padding: 7.522px 16.548px;
-  justify-content: center;
-  align-items: center;
-  gap: 6.017px;
-}
-.menu-detile-tour-search svg{
-  width: 12.787px;
-height: 12.787px;
-flex-shrink: 0;
-margin-left: 5px;
-}
-
-
-.text-menu-detile-search {
-  color: var(--K, #1B160E);
-  font-family: Poppins;
-  font-size: 12.035px;
-  font-style: normal;
-  font-weight: 600;
-  line-height: 180%;
-  margin: 0%;
-  /* 21.663px */
-}
-
 
 </style>

@@ -1,19 +1,12 @@
 <template>
   <Header/>
     <tourListService/>
-    <popularPackage/>
-    <allPackageInfo/>
-    <chooceNextDestanatio/>
-    <searchByLocation/> 
+   
     <Footer/>
 </template>
 
 <script>
-import tourListService from './tour-list-service.vue'
-import popularPackage from './popular-package.vue'
-import allPackageInfo from './all-package-info.vue'
-import chooceNextDestanatio from './chooce-next-destanatio.vue'
-import searchByLocation from './search-by-location.vue'
+import tourListService from './home-first-list-service.vue'
 import header from '../header.vue'
 import footer from '../footer.vue'
 
@@ -33,10 +26,6 @@ export default {
     components:
     {
         'tourListService':tourListService,
-        'popularPackage':popularPackage,
-        'chooceNextDestanatio':chooceNextDestanatio,
-        'allPackageInfo':allPackageInfo,
-        'searchByLocation':searchByLocation,
         'Footer':footer,
         'Header':header,
 

@@ -1,5 +1,6 @@
 <template>
-   <div class="tour-list-service">
+  <div class="FalseDiv"></div>
+   <!-- <div class="tour-list-service">
     <div class="holidays-list">
 
       <p class="vacanze">Holidays with the <span class="surf-camp">SurfCamp</span></p>
@@ -1342,7 +1343,7 @@
         </p>
       </div>
     </div>
-  </div>
+  </div> -->
 </template>
 
 <script>
@@ -1363,6 +1364,9 @@ export default {
 </script>
 
 <style scoped>
+.FalseDiv{
+  height: 500px;
+}
 .tour-list-service {
   padding: 0 5%;
   display: flex;
