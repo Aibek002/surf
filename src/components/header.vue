@@ -60,7 +60,7 @@ export default {
         <div class="logo">
           <img src="../img/travelingagency.svg" alt="" />
         </div>
-        <ul>
+        <ul v-if="windowWidth > 600">
           <li>
             <a href=""> Types of Tours</a>
           </li>
@@ -72,8 +72,7 @@ export default {
       </div>
       <div class="content">
         <h1>
-          Your next thrilling adventure<br />
-          starts today!
+          <img src="../img\fonts\YourNextThrillingAdventure.png" alt="" />
         </h1>
         <a href="" class="exploder">More details</a>
       </div>
@@ -114,169 +113,332 @@ export default {
 </template>
 
 <style scoped>
-.bodys {
-  display: flex;
-  flex-direction: column;
-}
-.waveinBigWidth {
-  position: absolute;
-  bottom: 50px;
-  max-width: 2000px;
-  width: 100%;
-}
-.waveinSmallWidth{
-  position: absolute;
-  bottom: 100px;
-  max-width: 2000px;
-  width: 100%;
-}
-.containers {
-  height: 80vh;
-  background: rgba(27, 27, 27, 0.91);
-  position: relative;
-  right: 0;
-  bottom: 0;
-  padding: 0 5%;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  position: relative;
-}
+@media screen and (max-width: 600px) {
+  .containers {
+    height: 47vh;
+    background: rgba(27, 27, 27, 0.91);
+    position: relative;
+    right: 0;
+    bottom: 0;
+    padding: 0 5%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+  }
+  .menu {
+    max-width: 100%;
+    min-width: 90%;
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+    max-width: 100%;
+    position: absolute;
+    top: 0;
+    left: 0;
+    padding: 20px 5%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
 
-.menu {
-  max-width: 100%;
-  min-width: 90%;
-  overflow: hidden;
-  white-space: nowrap;
-  text-overflow: ellipsis;
-  max-width: 100%;
-  position: absolute;
-  top: 0;
-  left: 0;
-  padding: 20px 5%;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-}
+  .logo {
+    display: flex;
+    align-items: center;
+  }
 
-.logo {
-  display: flex;
-  align-items: center;
-}
+  .logo img {
+    width: 100px;
+  }
 
-.logo img {
-  width: 100px;
-}
+  .text-logo {
+    background: linear-gradient(
+      180deg,
+      #e15100 21.05%,
+      #ff8f50 48.12%,
+      rgba(255, 213, 66, 0.86) 86.84%
+    );
+    background-clip: text;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    font-family: Kavoon;
+    font-size: 22px;
+    font-style: normal;
+    font-weight: 800;
+    line-height: normal;
+    letter-spacing: -2.253px;
+    margin-left: 40px;
+  }
 
-.text-logo {
-  background: linear-gradient(
-    180deg,
-    #e15100 21.05%,
-    #ff8f50 48.12%,
-    rgba(255, 213, 66, 0.86) 86.84%
-  );
-  background-clip: text;
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
-  font-family: Kavoon;
-  font-size: 22px;
-  font-style: normal;
-  font-weight: 800;
-  line-height: normal;
-  letter-spacing: -2.253px;
-  margin-left: 40px;
-}
+  ul {
+    display: flex;
+  }
 
-ul {
-  display: flex;
-}
+  ul li {
+    list-style: none;
+    display: inline-block;
+    margin-left: 40px;
+    margin-bottom: 0px;
+  }
 
-ul li {
-  list-style: none;
-  display: inline-block;
-  margin-left: 40px;
-  margin-bottom: 0px;
-}
+  ul li a {
+    color: transparent;
+    border-color: #ffff;
+    -webkit-text-stroke: 0.5px #fff;
+    text-decoration: none;
+    text-align: center;
+    font-family: Stereofunk;
+    font-size: 12px;
+    font-style: normal;
+    line-height: 27px; /* 225% */
+    letter-spacing: 0.12px;
+  }
 
-ul li a {
-  color: transparent;
-  border-color: #ffff;
-  -webkit-text-stroke: 0.5px #fff;
-  text-decoration: none;
-  text-align: center;
-  font-family: Stereofunk;
-  font-size: 12px;
-  font-style: normal;
-  line-height: 27px; /* 225% */
-  letter-spacing: 0.12px;
-}
+  ul li svg {
+    vertical-align: middle;
+    margin-right: 10px;
+    /* Adjust margin as needed */
+  }
+  .back-video {
+    position: absolute;
+    right: 0;
+    bottom: 0;
+    z-index: -1;
+    width: 100%;
+  }
+  .text-menu-detile-link {
+    color: #6b7d8d;
+    font-weight: 100;
+    font-style: normal;
+    font-family: cursive;
+    font-size: small;
+    margin: 0 0 0 5px;
+  }
 
-ul li svg {
-  vertical-align: middle;
-  margin-right: 10px;
-  /* Adjust margin as needed */
-}
-.back-video {
-  position: absolute;
-  right: 0;
-  bottom: 0;
-  z-index: -1;
-  width: 100%;
-}
-.text-menu-detile-link {
-  color: #6b7d8d;
-  font-weight: 100;
-  font-style: normal;
-  font-family: cursive;
-  font-size: small;
-  margin: 0 0 0 5px;
-}
+  .content {
+    align-items: center;
+    text-align: center;
+  }
 
-.content {
-  align-items: center;
-  text-align: center;
-}
+  .content h1 {
+  }
 
-.content h1 {
-}
+  .content h1 {
+    -webkit-text-stroke: 2px #fff;
+    color: transparent;
+    transition: all 2s;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    flex-shrink: 0;
+    text-align: center;
+    font-family: sans-serif;
+    font-size: 65px;
+    font-style: normal;
+    font-weight: 800;
+    line-height: normal;
+    transition: 0.5s;
+  }
 
-.content h1 {
-  -webkit-text-stroke: 2px #fff;
-  color: transparent;
-  transition: all 2s;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  flex-shrink: 0;
-  text-align: center;
-  font-family: sans-serif;
-  font-size: 65px;
-  font-style: normal;
-  font-weight: 800;
-  line-height: normal;
-  transition: 0.5s;
-}
+  .exploder {
+    text-decoration: none;
+    display: inline-block;
+    color: white;
+    font-size: 24px;
+    border: 2px solid #fff;
+    /* Устанавливаем рамку */
+    font-size: 15px;
+    padding: 14px 70px;
+    border-radius: 50px;
+    margin-top: 20px;
+  }
+  .exploder:hover {
+    border: 0.752px solid #f7070300;
+    transition: all 1s;
+  }
+  .bg-small-display {
+    position: absolute;
+    right: 0;
+    bottom: 0;
+    z-index: -1;
+  }
+  .bodys {
+    display: flex;
+    flex-direction: column;
+  }
 
-.exploder {
-  text-decoration: none;
-  display: inline-block;
-  color: white;
-  font-size: 24px;
-  border: 2px solid #fff;
-  /* Устанавливаем рамку */
-  font-size: 15px;
-  padding: 14px 70px;
-  border-radius: 50px;
-  margin-top: 20px;
+  .waveinSmallWidth {
+    position: absolute;
+    top: 40vh;
+    max-width: 2000px;
+    width: 100%;
+  }
 }
-.exploder:hover {
-  border: 0.752px solid #f7070300;
-  transition: all 1s;
-}
-.bg-small-display {
-  position: absolute;
-  right: 0;
-  bottom: 0;
-  z-index: -1;
+@media screen and (min-width: 600px) {
+  .bodys {
+    display: flex;
+    flex-direction: column;
+  }
+  .waveinBigWidth {
+    position: absolute;
+    bottom: 50px;
+    max-width: 2000px;
+    width: 100%;
+  }
+  .waveinSmallWidth {
+    position: absolute;
+    bottom: 100px;
+    max-width: 2000px;
+    width: 100%;
+  }
+  .containers {
+    height: 80vh;
+    background: rgba(27, 27, 27, 0.91);
+    position: relative;
+    right: 0;
+    bottom: 0;
+    padding: 0 5%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+  }
+
+  .menu {
+    max-width: 100%;
+    min-width: 90%;
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+    max-width: 100%;
+    position: absolute;
+    top: 0;
+    left: 0;
+    padding: 20px 5%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+
+  .logo {
+    display: flex;
+    align-items: center;
+  }
+
+  .logo img {
+    width: 100px;
+  }
+
+  .text-logo {
+    background: linear-gradient(
+      180deg,
+      #e15100 21.05%,
+      #ff8f50 48.12%,
+      rgba(255, 213, 66, 0.86) 86.84%
+    );
+    background-clip: text;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    font-family: Kavoon;
+    font-size: 22px;
+    font-style: normal;
+    font-weight: 800;
+    line-height: normal;
+    letter-spacing: -2.253px;
+    margin-left: 40px;
+  }
+
+  ul {
+    display: flex;
+  }
+
+  ul li {
+    list-style: none;
+    display: inline-block;
+    margin-left: 40px;
+    margin-bottom: 0px;
+  }
+
+  ul li a {
+    color: transparent;
+    border-color: #ffff;
+    -webkit-text-stroke: 0.5px #fff;
+    text-decoration: none;
+    text-align: center;
+    font-family: Stereofunk;
+    font-size: 12px;
+    font-style: normal;
+    line-height: 27px; /* 225% */
+    letter-spacing: 0.12px;
+  }
+
+  ul li svg {
+    vertical-align: middle;
+    margin-right: 10px;
+    /* Adjust margin as needed */
+  }
+  .back-video {
+    position: absolute;
+    right: 0;
+    bottom: 0;
+    z-index: -1;
+    width: 100%;
+  }
+  .text-menu-detile-link {
+    color: #6b7d8d;
+    font-weight: 100;
+    font-style: normal;
+    font-family: cursive;
+    font-size: small;
+    margin: 0 0 0 5px;
+  }
+
+  .content {
+    align-items: center;
+    text-align: center;
+  }
+
+  .content h1 {
+  }
+
+  .content h1 {
+    -webkit-text-stroke: 2px #fff;
+    color: transparent;
+    transition: all 2s;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    flex-shrink: 0;
+    text-align: center;
+    font-family: sans-serif;
+    font-size: 65px;
+    font-style: normal;
+    font-weight: 800;
+    line-height: normal;
+    transition: 0.5s;
+  }
+
+  .exploder {
+    text-decoration: none;
+    display: inline-block;
+    color: white;
+    font-size: 24px;
+    border: 2px solid #fff;
+    /* Устанавливаем рамку */
+    font-size: 15px;
+    padding: 14px 70px;
+    border-radius: 50px;
+    margin-top: 20px;
+  }
+  .exploder:hover {
+    border: 0.752px solid #f7070300;
+    transition: all 1s;
+  }
+  .bg-small-display {
+    position: absolute;
+    right: 0;
+    bottom: 0;
+    z-index: -1;
+  }
 }
 </style>
